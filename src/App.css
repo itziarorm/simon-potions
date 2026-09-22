@@ -2,7 +2,6 @@
   color: #f8fafc;
   background: #090713;
   font-family: ui-rounded, system-ui, sans-serif;
-  background-image: url('./assets/image/table.jpeg');
 }
 * {
   box-sizing: border-box;
@@ -19,7 +18,9 @@ button {
   display: grid;
   place-items: center;
   padding: clamp(1rem, 4vw, 3rem);
-  
+  background-image: url('./assets/image/table.jpeg');
+  background-size: cover;
+  background-position: center;
 }
 .game-card {
   width: min(100%, 30rem);

@@ -35,8 +35,17 @@ function App() {
     },
   });
 
-  const [isSoundEnabled, setSoundEnabled] = useState(true);
-  const [musicP] = useSound(music);
+  const [isSoundEnabled, setSoundEnabled] = useState(false);
+  const [musicP, {stop}] = useSound(music, {volume: 0.2});
+
+  const handleMusic = () => {
+    if (isSoundEnabled){
+      stop();
+    } else {
+      musicP();
+    }
+    setSoundEnabled(!isSoundEnabled);
+  };
 
   const [sequence, setSequence] = useState([]);
   const [playerIndex, setPlayerIndex] = useState(0);
@@ -173,7 +182,7 @@ function App() {
           <p className='eyebrow'>The resonant trial</p>
           <h1 id='game-title'>Simon of Kaotika</h1>
           <h2>
-            <button className='music' onClick={ musicP }>{ isSoundEnabled ? ("🔊") : ("🔇") }</button>
+            <button className='music' onClick={ handleMusic }>{ !isSoundEnabled ? ("🔊") : ("🔇") }</button>
           </h2>
         </header>
 
