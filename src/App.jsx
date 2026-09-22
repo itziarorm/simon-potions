@@ -1,13 +1,20 @@
 import { useState, useRef, useEffect } from 'react';
 import { useSound } from '@mrmartineau/use-sound';
 import spriteUrl from "./assets/sounds/sprite.mp3";
+import music from "./assets/sounds/Arcane.mp3";
 import './App.css';
 
+import bluePot from "./assets/image/bluePot.png";
+import redPot from "./assets/image/redPot.png";
+import greenPot from "./assets/image/greenPot.png";
+import yellowPot from "./assets/image/yellowPot.png";
+
+
 const PADS = [
-  { id: "ember", label: "Ember", glyph: "I", color: "#fbbf24", sound: "one" },
-  { id: "tide", label: "Tide", glyph: "II", color: "#38bdf8", sound: "two" },
-  { id: "thorn", label: "Thorn", glyph: "III", color: "#4ade80", sound: "three" },
-  { id: "blood", label: "Blood", glyph: "IV", color: "#fb7185", sound: "four" },
+  { id: "ember", label: "Ember", glyph: "I", color: "#fbbf24", sound: "one", img: yellowPot },
+  { id: "tide", label: "Tide", glyph: "II", color: "#38bdf8", sound: "two", img: bluePot },
+  { id: "thorn", label: "Thorn", glyph: "III", color: "#4ade80", sound: "three", img: greenPot },
+  { id: "blood", label: "Blood", glyph: "IV", color: "#fb7185", sound: "four", img: redPot },
 ];
 
 const INITIAL_SPEED = 650;
@@ -27,6 +34,9 @@ function App() {
       error: [4000, 1000],
     },
   });
+
+  const [isSoundEnabled, setSoundEnabled] = useState(true);
+  const [musicP] = useSound(music);
 
   const [sequence, setSequence] = useState([]);
   const [playerIndex, setPlayerIndex] = useState(0);
@@ -162,6 +172,9 @@ function App() {
         <header className='game-header'>
           <p className='eyebrow'>The resonant trial</p>
           <h1 id='game-title'>Simon of Kaotika</h1>
+          <h2>
+            <button className='music' onClick={ musicP }>{ isSoundEnabled ? ("🔊") : ("🔇") }</button>
+          </h2>
         </header>
 
         {phase === "idle" ? (
@@ -191,7 +204,7 @@ function App() {
                 disabled={phase !=="player"}
                 aria-label={`${pad.label} rune`}
                 >
-                  <span aria-hidden="true">{pad.glyph}</span>
+                  <img src={pad.img} width="250"></img>
               </button>
             ))}
           </div>

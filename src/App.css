@@ -2,6 +2,7 @@
   color: #f8fafc;
   background: #090713;
   font-family: ui-rounded, system-ui, sans-serif;
+  background-image: url('./assets/image/table.jpeg');
 }
 * {
   box-sizing: border-box;
@@ -18,12 +19,10 @@ button {
   display: grid;
   place-items: center;
   padding: clamp(1rem, 4vw, 3rem);
-  background:
-    radial-gradient(circle at top, #312e81 0, transparent 42%),
-    #090713;
+  
 }
 .game-card {
-  width: min(100%, 42rem);
+  width: min(100%, 30rem);
   text-align: center;
 }
 .eyebrow {
@@ -45,7 +44,7 @@ button {
   margin-bottom: 1rem;
 }
 .board {
-  width:min(82vw, 34rem);
+  width:min(82vw, 20rem);
   aspect-ratio: 1;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -54,20 +53,20 @@ button {
 }
 .pad {
   border: 0;
-  background: var(--pad-color);
+  background: var(--pad-img);
   color: #111827;
   font-size: clamp(1.2rem 5vw, 2.2rem);
   font-weight: 800;
-  opacity: 0.55;
+  opacity: 0.70;
   cursor: pointer;
   transform: scale(1);
   transition: opacity 120ms ease, transform 120ms ease,
     filter 120ms ease;
 }
-.pad--ember { border-radius: 100% 1rem 1rem 1rem; }
-.pad--tide { border-radius: 1rem 100% 1rem 1rem; }
-.pad--thorn { border-radius: 1rem 1rem 1rem 100%; }
-.pad--blood { border-radius: 1rem 1rem 100% 1rem; }
+.pad.img {
+  width: 150px;
+  height: fit-content;
+}
 .pad.is-active {
   opacity: 1;
   filter: brightness(1.25) saturate(1.2);
