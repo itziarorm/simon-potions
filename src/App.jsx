@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useSound } from '@mrmartineau/use-sound';
-import spriteUrl from "./assets/sounds/cryst_.mp3";
+import spriteUrl from "./assets/sounds/bottle.mp3";
 import music from "./assets/sounds/Arcane.mp3";
 import './App.css';
 
@@ -27,11 +27,11 @@ function App() {
   const [play] = useSound(spriteUrl, {
     interrupt: true,
     sprite: {
-      one: [0, 500],
-      two: [1000, 500],
-      three: [2000, 500],
-      four:[3500, 500],
-      error: [4000, 1000],
+      one: [0, 700],
+    two: [1600, 600],
+    three: [3000, 600],
+    four: [5000, 600],
+    error: [6500, 1000],
     },
   });
 
