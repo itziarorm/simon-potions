@@ -18,7 +18,7 @@ button {
   display: grid;
   place-items: center;
   padding: clamp(1rem, 4vw, 3rem);
-  background-image: url('./assets/image/table.jpeg');
+  background-image: url('./assets/image/witch.jpeg');
   background-size: cover;
   background-position: center;
 }
@@ -45,11 +45,12 @@ button {
   margin-bottom: 1rem;
 }
 .board {
-  width:min(82vw, 20rem);
+  width:min(82vw, 40rem);
   aspect-ratio: 1;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(0.65rem, 2vw, 1rem);
+  grid-template-columns: repeat(4, 1fr);
+  margin-left: -45%;
+  margin-bottom: -20%;
   margin: 0 auto 1.5 rem;
 }
 .pad {
@@ -94,4 +95,16 @@ button {
   .pad {
     transition: none;
   }
+}
+.phase-idle {
+  background-image: url('./assets/image/door.jpeg');
+}
+.phase-lost {
+  background-image: url('./assets/image/lost.jpeg');
+}
+.music {
+  border: 0;
+  margin-right: 100%;
+  background-color: transparent;
+  cursor: pointer;
 }

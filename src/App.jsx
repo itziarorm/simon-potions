@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useSound } from '@mrmartineau/use-sound';
-import spriteUrl from "./assets/sounds/sprite.mp3";
+import spriteUrl from "./assets/sounds/cryst_.mp3";
 import music from "./assets/sounds/Arcane.mp3";
 import './App.css';
 
@@ -30,7 +30,7 @@ function App() {
       one: [0, 500],
       two: [1000, 500],
       three: [2000, 500],
-      four:[3000,500],
+      four:[3500, 500],
       error: [4000, 1000],
     },
   });
@@ -176,14 +176,12 @@ function App() {
   }, [phase]);
 
   return (
-    <main className="game-shell">
+    <main className={`game-shell phase-${phase}`}>
       <section className='game-card' aria-labelledby='game-title'>
         <header className='game-header'>
+          <h1><button className='music' onClick={ handleMusic }>{ !isSoundEnabled ? ("🔊") : ("🔇") }</button></h1>
           <p className='eyebrow'>The resonant trial</p>
           <h1 id='game-title'>Simon of Kaotika</h1>
-          <h2>
-            <button className='music' onClick={ handleMusic }>{ !isSoundEnabled ? ("🔊") : ("🔇") }</button>
-          </h2>
         </header>
 
         {phase === "idle" ? (
@@ -219,9 +217,12 @@ function App() {
           </div>
 
           {phase === "lost" && (
-            <button className="action-button" onClick={startGame}>
-              Try Again
-            </button>
+            <div>
+              <h1>You lost</h1>
+              <button className="action-button" onClick={startGame}>
+                Try Again
+              </button>
+            </div>
           )}
           </>
         )}
